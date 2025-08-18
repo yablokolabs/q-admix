@@ -51,7 +51,10 @@ const FAQs = () => (
                         {faqsList.map((item, idx) => (
                             <li
                                 key={idx}
-                                className="space-y-3"
+                                className="hover-glow space-y-3 p-4 rounded-xl border border-gray-800 transition-all duration-300"
+                                style={{
+                                    background: "radial-gradient(157.73% 157.73% at 50% -29.9%, rgba(203, 213, 225, 0.16) 0%, rgba(203, 213, 225, 0) 100%)"
+                                }}
                             >
                                 <summary
                                     className="flex items-center justify-between font-semibold text-gray-100">

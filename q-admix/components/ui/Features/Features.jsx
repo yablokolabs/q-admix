@@ -84,7 +84,7 @@ const Features = () => {
                         <ul className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                             {
                                 featuresList.map((item, idx) => (
-                                    <li key={idx} className="space-y-3 p-4 rounded-xl border border-gray-800"
+                                    <li key={idx} className="hover-glow space-y-3 p-4 rounded-xl border border-gray-800 transition-all duration-300"
                                         style={{
                                             background: "radial-gradient(157.73% 157.73% at 50% -29.9%, rgba(203, 213, 225, 0.16) 0%, rgba(203, 213, 225, 0) 100%)"
                                         }}
