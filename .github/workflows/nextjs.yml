@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: q-admix™
+        working-directory: q-admix
     steps:
       - uses: actions/checkout@v4
 
@@ -23,7 +23,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
-          cache-dependency-path: q-admix™/package-lock.json
+          cache-dependency-path: q-admix/package-lock.json
 
       - uses: actions/configure-pages@v5
 
@@ -32,7 +32,7 @@ jobs:
 
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: q-admix™/out
+          path: q-admix/.next
 
   deploy:
     runs-on: ubuntu-latest
