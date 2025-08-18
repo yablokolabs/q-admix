@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://qadmix.com/sitemap.xml
+Sitemap: https://q-admix.com/sitemap.xml
 
 # Disallow crawling of next.js internal and API routes
 Disallow: /_next/
