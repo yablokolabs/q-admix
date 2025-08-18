@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="560" viewBox="0 0 1440 560">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#6E3AFF"/>
+      <stop offset="50%" stop-color="#B53DFA"/>
+      <stop offset="100%" stop-color="#F81F89"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="28" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .title { font: 800 64px/1.1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"; fill: #0F1020; }
+      .subtitle { font: 600 24px/1.4 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #1B1C33; }
+      .context { font: 500 18px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #272846; }
+      .muted { opacity: .9; }
+      .pill { font: 600 16px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0D0E1A; }
+      .kpi { font: 700 18px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #0D0E1A; }
+      .kpiSub { font: 500 12px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #353755; }
+      .mono { font: 700 13px/1 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
+      .btn { font: 700 16px/1 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; fill: #fff; }
+    </style>
+  </defs>
+
+  <rect width="1440" height="560" fill="url(#g1)"/>
+  <circle cx="1180" cy="80" r="260" fill="url(#glow)" filter="url(#soft)"/>
+  <circle cx="220" cy="520" r="320" fill="url(#glow)" filter="url(#soft)"/>
+
+  <g transform="translate(120,110)">
+    <rect x="-20" y="-30" width="640" height="380" rx="28" fill="#ffffff" opacity="0.86"/>
+    <text x="0" y="40" class="title">Q‑AdMix</text>
+    <text x="0" y="88" class="subtitle">Quantum AI for Profitable Ads</text>
+    <text x="0" y="128" class="context muted">Budget allocation • Channel mix optimization • Creative pruning</text>
+    <text x="0" y="154" class="context muted">MMM &amp; causal lift • ROAS forecasting • Constraints &amp; goals</text>
+
+    <g transform="translate(0,190)">
+      <rect x="0" y="0" rx="18" ry="18" width="120" height="36" fill="#fff"/>
+      <text x="16" y="24" class="pill">Google Ads</text>
+
+      <rect x="132" y="0" rx="18" ry="18" width="96" height="36" fill="#fff"/>
+      <text x="148" y="24" class="pill">Meta</text>
+
+      <rect x="240" y="0" rx="18" ry="18" width="108" height="36" fill="#fff"/>
+      <text x="256" y="24" class="pill">YouTube</text>
+
+      <rect x="360" y="0" rx="18" ry="18" width="112" height="36" fill="#fff"/>
+      <text x="376" y="24" class="pill">LinkedIn</text>
+
+      <rect x="484" y="0" rx="18" ry="18" width="92" height="36" fill="#fff"/>
+      <text x="500" y="24" class="pill">TikTok</text>
+    </g>
+
+    <g transform="translate(0,246)">
+      <rect x="0" y="0" width="180" height="78" rx="16" fill="#F7F7FB"/>
+      <text x="20" y="34" class="kpi">ROAS ↑</text>
+      <text x="20" y="58" class="kpiSub">Focus on revenue efficiency</text>
+
+      <rect x="196" y="0" width="180" height="78" rx="16" fill="#F7F7FB"/>
+      <text x="216" y="34" class="kpi">CAC ↓</text>
+      <text x="216" y="58" class="kpiSub">Acquire customers cheaper</text>
+
+      <rect x="392" y="0" width="180" height="78" rx="16" fill="#F7F7FB"/>
+      <text x="412" y="34" class="kpi">Waste ↓</text>
+      <text x="412" y="58" class="kpiSub">Cut under‑performers fast</text>
+    </g>
+
+    <g transform="translate(0,340)">
+      <rect x="0" y="0" width="200" height="44" rx="12" fill="#0F1020"/>
+      <text x="20" y="28" class="btn">Request a Demo</text>
+      <text x="220" y="28" class="mono" fill="#0F1020">npm i @q-admix/sdk</text>
+    </g>
+  </g>
+
+  <g transform="translate(860,60)">
+    <rect x="0" y="0" width="500" height="420" rx="28" fill="#0F1020" opacity="0.8"/>
+    <g transform="translate(28,24)">
+      <text x="0" y="0" class="mono" fill="#D2D5FF">mix.optimize(budget)</text>
+      <rect x="0" y="20" width="444" height="2" fill="#2A2B45"/>
+      <g transform="translate(0,40)">
+        <rect x="0" y="0" width="444" height="36" rx="10" fill="#1A1B34"/>
+        <text x="16" y="24" class="mono" fill="#9AA0FF">constraints: { cpa &lt; target, spend_gte(min) }</text>
+      </g>
+      <g transform="translate(0,86)">
+        <rect x="0" y="0" width="444" height="36" rx="10" fill="#1A1B34"/>
+        <text x="16" y="24" class="mono" fill="#9AFFC8">channels: [google, meta, youtube, linkedin, tiktok]</text>
+      </g>
+      <g transform="translate(0,132)">
+        <rect x="0" y="0" width="444" height="36" rx="10" fill="#1A1B34"/>
+        <text x="16" y="24" class="mono" fill="#FFD59A">objective: maximize(roas)</text>
+      </g>
+      <g transform="translate(0,178)">
+        <rect x="0" y="0" width="444" height="36" rx="10" fill="#1A1B34"/>
+        <text x="16" y="24" class="mono" fill="#E6A6FF">method: hybrid_quantum_annealing</text>
+      </g>
+      <g transform="translate(0,232)">
+        <rect x="0" y="0" width="444" height="120" rx="14" fill="#14152B"/>
+        <text x="16" y="30" class="mono" fill="#D2D5FF">→ suggestion:</text>
+        <text x="16" y="56" class="mono" fill="#B3B7FF">google 42% • meta 29% • yt 18% • li 7% • tt 4%</text>
+        <text x="16" y="84" class="mono" fill="#9AFFC8">expected: higher ROAS, lower CAC</text>
+      </g>
+    </g>
+  </g>
+</svg>

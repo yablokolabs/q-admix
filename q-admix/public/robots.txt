@@ -1,0 +1,17 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://qadmix.com/sitemap.xml
+
+# Disallow crawling of next.js internal and API routes
+Disallow: /_next/
+Disallow: /api/
+Disallow: /_error
+Disallow: /404
+
+# Allow all other pages
+Allow: /*
+
+# Crawl-delay: 10  # Uncomment and adjust if needed to limit crawl rate
