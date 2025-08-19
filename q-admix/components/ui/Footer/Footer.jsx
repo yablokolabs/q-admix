@@ -37,7 +37,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="pt-8 border-t border-gray-800">
-                    <p className="text-gray-400 text-center">© 2025 <a href="https://yablokolabs.com" target="_blank" rel="noopener noreferrer" className="text-purple-500 hover:text-purple-400 transition-colors">Yabloko Labs Pvt. Ltd.</a> All rights reserved.</p>
+                    <p className="text-gray-400 text-center">© 2025 <a href="https://yablokolabs.com" target="_blank" rel="noopener noreferrer" className="text-purple-500 hover:text-purple-400 transition-colors">Yabloko Labs.</a> All rights reserved.</p>
                 </div>
             </div>
         </footer>
