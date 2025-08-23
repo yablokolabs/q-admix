@@ -113,3 +113,19 @@ input, textarea, select, button { cursor: auto; }
   color: transparent;
   animation: qa-gradient-shift 6s ease-in-out infinite;
 }
+
+/* Fade in animation for dynamic content */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
