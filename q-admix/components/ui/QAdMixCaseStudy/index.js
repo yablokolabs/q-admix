@@ -1,1 +1,1 @@
-export { default } from "./QAdMixCaseStudy"
+export { default } from "./QAdMixCaseStudy";

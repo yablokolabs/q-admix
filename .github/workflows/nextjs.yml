@@ -21,8 +21,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'
-          cache-dependency-path: 'q-admix/package-lock.json'
+          cache: "npm"
+          cache-dependency-path: "q-admix/package-lock.json"
 
       - name: Install dependencies
         working-directory: q-admix
@@ -41,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'q-admix/out'
+          path: "q-admix/out"
 
   deploy:
     needs: build

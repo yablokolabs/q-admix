@@ -28,9 +28,9 @@ const QuantumCursor = () => {
         isIdle.current = false;
         if (idleTimeout.current) clearTimeout(idleTimeout.current);
       }
-      
+
       target.current = { x: e.clientX, y: e.clientY };
-      
+
       // Show cursor immediately on first move
       dot.style.opacity = "1";
       glow.style.opacity = "1";
@@ -75,7 +75,7 @@ const QuantumCursor = () => {
         idleTimeout.current = setTimeout(checkIdle, 100);
       }
     };
-    
+
     // Start idle check loop
     idleTimeout.current = setTimeout(checkIdle, 1500);
 
@@ -85,7 +85,8 @@ const QuantumCursor = () => {
 
       // Detect whether we're hovering an interactive element
       const el = document.elementFromPoint(target.current.x, target.current.y);
-      const interactiveSelector = 'a, button, [role="button"], .cursor-interactive, input[type="submit"], input[type="button"], label';
+      const interactiveSelector =
+        "a, button, [role=\"button\"], .cursor-interactive, input[type=\"submit\"], input[type=\"button\"], label";
       isHover.current = !!(el && el.closest(interactiveSelector));
 
       // Pulse factor when hovering
@@ -97,7 +98,7 @@ const QuantumCursor = () => {
 
       const dotScale = (isHover.current ? 1.12 : 1.0) * (isDown.current ? 0.9 : 1.0);
       let glowScale = (isHover.current ? 1.15 : 1.0) * (isDown.current ? 0.98 : 1.0) * pulse;
-      
+
       // Add subtle idle breathing effect
       if (isIdle.current && !isHover.current) {
         glowScale *= 0.98 + 0.04 * Math.sin(performance.now() * 0.002);
@@ -195,8 +196,7 @@ const QuantumCursor = () => {
             height: 8,
             borderRadius: "50%",
             background: "#ffffff",
-            boxShadow:
-              "0 0 12px rgba(255,255,255,0.8), 0 0 24px rgba(168,85,247,0.55)",
+            boxShadow: "0 0 12px rgba(255,255,255,0.8), 0 0 24px rgba(168,85,247,0.55)",
           }}
         />
       </div>

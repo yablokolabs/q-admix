@@ -1,17 +1,9 @@
-import { useState, useEffect } from "react";
-import Button from "../Button";
 import GradientWrapper from "@/components/GradientWrapper";
 import LayoutEffect from "@/components/LayoutEffect";
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title, Tooltip } from "chart.js";
+import { useEffect, useState } from "react";
+import { Bar } from "react-chartjs-2";
+import Button from "../Button";
 
 ChartJS.register(
   CategoryScale,
@@ -19,7 +11,7 @@ ChartJS.register(
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 const QAdMixCaseStudy = () => {
@@ -34,30 +26,30 @@ const QAdMixCaseStudy = () => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   const runSimulation = () => {
     setIsLoading(true);
-    
+
     // Simulate processing time
     setTimeout(() => {
       // Calculate realistic metrics based on inputs
       const baseROAS = (budget / 10000) * (channels * 0.6) + (audience / 20);
       const classical_roas = baseROAS * (0.8 + Math.random() * 0.2); // 80-100% of base
-      
+
       // Quantum improvement: 15-25% better ROAS
-      const improvement = Math.floor(Math.random() * 11) + 15; 
+      const improvement = Math.floor(Math.random() * 11) + 15;
       const quantum_roas = classical_roas * (1 + improvement / 100);
-      
+
       // Calculate waste reduction
       const classical_waste_percent = 35 + Math.random() * 10; // 35-45% waste
       const quantum_waste_percent = classical_waste_percent * (1 - improvement / 100);
-      
+
       const wasted_spend = Math.round(budget * (classical_waste_percent / 100));
       const reduced_waste = Math.round(budget * (quantum_waste_percent / 100));
       const savings = wasted_spend - reduced_waste;
@@ -70,85 +62,87 @@ const QAdMixCaseStudy = () => {
         reduced_waste,
         savings,
         classical_waste_percent: classical_waste_percent.toFixed(1),
-        quantum_waste_percent: quantum_waste_percent.toFixed(1)
+        quantum_waste_percent: quantum_waste_percent.toFixed(1),
       });
       setIsLoading(false);
     }, 1500);
   };
 
-  const chartData = result ? {
-    labels: ["Classical Planning", "Q-AdMix™ Quantum Planning"],
-    datasets: [
-      {
-        label: "ROAS (Return on Ad Spend)",
-        data: [result.classical, result.quantum],
-        backgroundColor: [
-          "rgba(248, 113, 113, 0.8)", // red-400
-          "rgba(52, 211, 153, 0.8)"   // green-400
-        ],
-        borderColor: [
-          "rgba(248, 113, 113, 1)",
-          "rgba(52, 211, 153, 1)"
-        ],
-        borderWidth: 2,
-        borderRadius: 8,
-      },
-    ],
-  } : null;
+  const chartData = result
+    ? {
+      labels: ["Classical Planning", "Q-AdMix™ Quantum Planning"],
+      datasets: [
+        {
+          label: "ROAS (Return on Ad Spend)",
+          data: [result.classical, result.quantum],
+          backgroundColor: [
+            "rgba(248, 113, 113, 0.8)", // red-400
+            "rgba(52, 211, 153, 0.8)", // green-400
+          ],
+          borderColor: [
+            "rgba(248, 113, 113, 1)",
+            "rgba(52, 211, 153, 1)",
+          ],
+          borderWidth: 2,
+          borderRadius: 8,
+        },
+      ],
+    }
+    : null;
 
   const chartOptions = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: false
+        display: false,
       },
       title: {
         display: true,
-        text: 'ROAS Comparison',
+        text: "ROAS Comparison",
         font: {
           size: isMobile ? 14 : 16,
-          weight: 'bold'
+          weight: "bold",
         },
         padding: {
-          bottom: 20
-        }
-      }
+          bottom: 20,
+        },
+      },
     },
     scales: {
       y: {
         beginAtZero: true,
         grid: {
-          color: 'rgba(156, 163, 175, 0.2)'
+          color: "rgba(156, 163, 175, 0.2)",
         },
         ticks: {
           font: { size: isMobile ? 10 : 12 },
           callback: function(value) {
-            return value + 'x';
-          }
-        }
+            return value + "x";
+          },
+        },
       },
       x: {
         grid: {
-          display: false
+          display: false,
         },
         ticks: {
           font: { size: isMobile ? 10 : 12 },
           maxRotation: isMobile ? 45 : 0,
-          minRotation: 0
-        }
-      }
+          minRotation: 0,
+        },
+      },
     },
     animation: {
       duration: 1000,
-      easing: 'easeOutQuart'
+      easing: "easeOutQuart",
     },
     layout: {
       padding: {
         top: 10,
-        bottom: 10
-      }
-    }
+        bottom: 10,
+      },
+    },
   };
 
   return (
@@ -156,10 +150,11 @@ const QAdMixCaseStudy = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-purple-50/50 via-blue-50/30 to-white"></div>
       <div className="relative">
         <div className="custom-screen">
-          <LayoutEffect className="duration-1000 delay-300"
+          <LayoutEffect
+            className="duration-1000 delay-300"
             isInviewState={{
               trueState: "opacity-1 translate-y-0",
-              falseState: "opacity-0 translate-y-6"
+              falseState: "opacity-0 translate-y-6",
             }}
           >
             <div className="max-w-6xl mx-auto">
@@ -168,8 +163,8 @@ const QAdMixCaseStudy = () => {
                   📢 Case Study: Smarter Ad Spend with Q-AdMix™
                 </h2>
                 <p className="text-gray-600 text-lg leading-relaxed max-w-3xl mx-auto">
-                  Marketers waste up to 40% of digital ad spend on poor targeting and overlapping audiences. 
-                  Q-AdMix™ uses Hybrid Quantum + AI optimization to reduce waste and maximize ROAS across channels.
+                  Marketers waste up to 40% of digital ad spend on poor targeting and overlapping audiences. Q-AdMix™
+                  uses Hybrid Quantum + AI optimization to reduce waste and maximize ROAS across channels.
                 </p>
               </div>
 
@@ -233,26 +228,27 @@ const QAdMixCaseStudy = () => {
                         onClick={runSimulation}
                         disabled={isLoading}
                         className={`px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-105 ${
-                          isLoading 
-                            ? 'bg-gray-400 cursor-not-allowed' 
-                            : 'bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl'
+                          isLoading
+                            ? "bg-gray-400 cursor-not-allowed"
+                            : "bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white shadow-lg hover:shadow-xl"
                         }`}
                       >
-                        {isLoading ? (
-                          <div className="flex items-center space-x-2">
-                            <div className="animate-spin h-4 w-4 sm:h-5 sm:w-5 border-2 border-white border-t-transparent rounded-full"></div>
-                            <span className="text-sm sm:text-base">Processing...</span>
-                          </div>
-                        ) : (
-                          <span className="text-sm sm:text-base">🔬 Run Quantum Simulation</span>
-                        )}
+                        {isLoading
+                          ? (
+                            <div className="flex items-center space-x-2">
+                              <div className="animate-spin h-4 w-4 sm:h-5 sm:w-5 border-2 border-white border-t-transparent rounded-full">
+                              </div>
+                              <span className="text-sm sm:text-base">Processing...</span>
+                            </div>
+                          )
+                          : <span className="text-sm sm:text-base">🔬 Run Quantum Simulation</span>}
                       </Button>
                     </div>
 
                     {result && (
                       <div className="space-y-6 sm:space-y-8 animate-fadeIn">
                         <div className="bg-gradient-to-br from-green-50 to-blue-50 rounded-2xl p-4 sm:p-6 border-2 border-green-200">
-                          <div className="relative w-full" style={{ height: 'clamp(250px, 50vw, 400px)' }}>
+                          <div className="relative w-full" style={{ height: "clamp(250px, 50vw, 400px)" }}>
                             <Bar data={chartData} options={chartOptions} />
                           </div>
                         </div>
@@ -278,7 +274,8 @@ const QAdMixCaseStudy = () => {
                           </div>
                           <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-4 sm:p-6 border border-purple-200">
                             <div className="text-2xl sm:text-3xl font-bold text-purple-600 mb-2">
-                              -{(parseFloat(result.classical_waste_percent) - parseFloat(result.quantum_waste_percent)).toFixed(1)}%
+                              -{(parseFloat(result.classical_waste_percent) - parseFloat(result.quantum_waste_percent))
+                                .toFixed(1)}%
                             </div>
                             <div className="text-xs sm:text-sm font-semibold text-gray-700 mb-1">Waste Reduction</div>
                             <div className="text-xs text-gray-500">
@@ -307,10 +304,11 @@ const QAdMixCaseStudy = () => {
               </GradientWrapper>
 
               <div className="mt-16 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 text-center">
-                <LayoutEffect className="duration-1000 delay-500"
+                <LayoutEffect
+                  className="duration-1000 delay-500"
                   isInviewState={{
                     trueState: "opacity-1 translate-y-0",
-                    falseState: "opacity-0 translate-y-6"
+                    falseState: "opacity-0 translate-y-6",
                   }}
                 >
                   <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
@@ -321,10 +319,11 @@ const QAdMixCaseStudy = () => {
                     </p>
                   </div>
                 </LayoutEffect>
-                <LayoutEffect className="duration-1000 delay-700"
+                <LayoutEffect
+                  className="duration-1000 delay-700"
                   isInviewState={{
                     trueState: "opacity-1 translate-y-0",
-                    falseState: "opacity-0 translate-y-6"
+                    falseState: "opacity-0 translate-y-6",
                   }}
                 >
                   <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
@@ -335,10 +334,11 @@ const QAdMixCaseStudy = () => {
                     </p>
                   </div>
                 </LayoutEffect>
-                <LayoutEffect className="duration-1000 delay-900"
+                <LayoutEffect
+                  className="duration-1000 delay-900"
                   isInviewState={{
                     trueState: "opacity-1 translate-y-0",
-                    falseState: "opacity-0 translate-y-6"
+                    falseState: "opacity-0 translate-y-6",
                   }}
                 >
                   <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 sm:col-span-2 lg:col-span-1">

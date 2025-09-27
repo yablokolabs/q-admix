@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // Modern arrow Back-to-Top button
 const BackToTop = () => {
@@ -26,7 +26,7 @@ const BackToTop = () => {
 
   const scrollToTop = () => {
     const prefersReduced = window.matchMedia(
-      "(prefers-reduced-motion: reduce)"
+      "(prefers-reduced-motion: reduce)",
     ).matches;
 
     if (prefersReduced) {
@@ -55,52 +55,52 @@ const BackToTop = () => {
     >
       <div className="relative">
         {/* Arrow container */}
-        <div 
+        <div
           className={[
             "relative w-6 h-6 sm:w-7 sm:h-7 mx-auto",
             "transition-transform duration-300",
-            isHovered ? "-translate-y-1" : ""
+            isHovered ? "-translate-y-1" : "",
           ].join(" ")}
         >
           {/* Arrow line */}
-          <div 
+          <div
             className={[
               "absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2",
               "w-0.5 h-6 sm:h-7 bg-white",
               "transition-all duration-300",
-              isHovered ? "h-7 sm:h-8" : ""
+              isHovered ? "h-7 sm:h-8" : "",
             ].join(" ")}
           >
             {/* Arrow head */}
-            <div 
+            <div
               className={[
                 "absolute bottom-0 left-1/2 -translate-x-1/2",
                 "w-3 h-3 border-b-2 border-r-2 border-white",
                 "transform rotate-225 origin-center",
                 "transition-all duration-300",
-                isHovered ? "w-3.5 h-3.5" : ""
+                isHovered ? "w-3.5 h-3.5" : "",
               ].join(" ")}
             />
           </div>
-          
+
           {/* Glow effect */}
-          <div 
+          <div
             className={[
               "absolute inset-0 rounded-full",
               "bg-purple-400/30 blur-md -z-10",
               "transition-all duration-300",
-              isHovered ? "opacity-100 scale-125" : "opacity-0 scale-95"
+              isHovered ? "opacity-100 scale-125" : "opacity-0 scale-95",
             ].join(" ")}
           />
         </div>
-        
+
         {/* Background circle */}
-        <div 
+        <div
           className={[
             "absolute inset-0 -z-10 rounded-full",
             "bg-gradient-to-br from-purple-600 to-indigo-600",
             "transition-all duration-300",
-            isHovered ? "shadow-lg shadow-purple-900/40" : "shadow-md shadow-purple-900/20"
+            isHovered ? "shadow-lg shadow-purple-900/40" : "shadow-md shadow-purple-900/20",
           ].join(" ")}
         />
       </div>
