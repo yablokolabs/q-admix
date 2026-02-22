@@ -38,7 +38,7 @@ const Footer = () => {
         </div>
         <div className="pt-8 border-t border-gray-800">
           <p className="text-gray-400 text-center">
-            © 2025{" "}
+            © 2025-2026{" "}
             <a
               href="https://yablokolabs.com"
               target="_blank"
