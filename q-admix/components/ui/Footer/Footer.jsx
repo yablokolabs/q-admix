@@ -4,7 +4,7 @@ const Footer = () => {
       <div className="max-w-screen-xl mx-auto px-4 md:px-8 py-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-gray-400 mb-12">
           <div className="mb-6 md:mb-0">
-            <h2 className="text-2xl font-bold text-purple-400 mb-2">Q-Admix™</h2>
+            <h2 className="text-2xl font-bold text-purple-400 mb-2">Q-AdMix™</h2>
             <div className="w-12 h-0.5 bg-purple-400 mb-3"></div>
             <p className="text-lg">The Quantum Way to Profitable Ads</p>
           </div>
